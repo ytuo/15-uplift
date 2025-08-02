@@ -2,6 +2,10 @@ import requests
 import time
 import zipfile
 import glob
+import os
+from parameters import *
+from urllib.request import urlretrieve
+from urllib.parse import urlparse
 
 def download_file_with_progress(url, local_filename=None, download_dir="data/coc-shapefiles"):
     """
@@ -24,7 +28,7 @@ def download_file_with_progress(url, local_filename=None, download_dir="data/coc
     
     try:
         # Start the download
-        response = requests.get(url, stream=True, timeout=30)
+        response = requests.get(url, stream=True, timeout=30, verify=False)
         response.raise_for_status()  # Raise an exception for bad status codes
         
         # Get file size if available
@@ -70,11 +74,21 @@ def download_file_with_progress(url, local_filename=None, download_dir="data/coc
 
 def download_coc_state_file(state_code, year, download_dir="data/coc-shapefiles"):
     """
-    Download CoC state shapefile using the pattern from your URL
+    Download CoC state shapefile using the pattern from URL
     """
     url = f"https://files.hudexchange.info/reports/published/CoC_GIS_State_Shapefile_{state_code}_{year}.zip"
     filename = f"CoC_GIS_State_Shapefile_{state_code}.zip"
     
+    return download_file_with_progress(url, filename, download_dir + "/" + str(year))
+
+def download_tract_file(state_code, year, download_dir="data/tract-shapefiles"):
+    """
+    Download census tract shapefile using the pattern from URL
+    """
+    state_fips_code = state_info[state_code]
+    url = f"https://www2.census.gov/geo/tiger/TIGER2024/TRACT/tl_{year}_{state_fips_code[1]}_tract.zip"
+    filename = f"Tract_GIS_ShapeFile_{state_code}.zip"
+
     return download_file_with_progress(url, filename, download_dir + "/" + str(year))
 
 def unzip_all(folder_path):
