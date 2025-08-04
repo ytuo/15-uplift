@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+<idinfo>
+<citation>
+<citeinfo>
+<origin>U.S. Department of Housing and Urban Development (HUD)</origin>
+<pubdate>20230101</pubdate>
+<title>NJ_513</title>
+<geoform>vector digital data</geoform>
+</citeinfo>
+</citation>
+<descript>
+<abstract>The dataset contains the geographic boundaries for The U.S. Department of Housing and Urban Development's Continuum of Care (CoC) areas. The dataset is current for FY2023 and contains the geographic boundaries for all of the FY2023 claimed CoC areas and includes funding status information, as well as select Housing Inventory Count and Point-In-Time variables, as available.</abstract>
+<purpose>The U.S. Department of Housing and Urban Development is providing these data sets for use by Continuum of Care grantees, homeless services planners and research institutions. Because HUD provides competitive funding for homeless services through a Continuum of Care structure that is developed at the local level, outside research based on this structure cannot be accomplished without the provision of the geographic boundaries and related data provided herein. Therefore, this data set was developed to make the Continuum of Care process and funding as transparent as possible to the public.</purpose>
+</descript>
+<timeperd>
+<timeinfo>
+<rngdates>
+<begdate>20230101</begdate>
+<enddate>20231231</enddate>
+</rngdates>
+</timeinfo>
+<current>CoC FY2023.</current>
+</timeperd>
+<status>
+<progress>Complete</progress>
+<update>Annually</update>
+</status>
+<spdom>
+<bounding>
+<westbc>-74.797881</westbc>
+<eastbc>-74.401742</eastbc>
+<northbc>40.758288</northbc>
+<southbc>40.373733</southbc>
+</bounding>
+</spdom>
+<keywords>
+<theme>
+<themekt>Department of Housing and Urban Development Continuum of Care Homeless Assistance Programs, 69 Fed. Reg. 27495 (May 14, 2004).</themekt>
+<themekey>Homeless</themekey>
+<themekey>Continuum of Care</themekey>
+<themekey>CoC</themekey>
+</theme>
+</keywords>
+<accconst>The dataset can be downloaded from The U.S. Department of Housing and Urban Development website, https://www.hudexchange.info/programs/coc/gis-tools/. The dataset may only be re-distributed in original form and may not be distributed in part or in modified form.</accconst>
+<useconst>HUD and the dataset and metadata authors assume no responsibility for the use or misuse of the dataset. No warranty, expressed or implied is made with regard to the accuracy of the spatial accuracy, and no liability is assumed by the U.S. Government in general, the dataset creators or the U.S. Department of Housing and Urban Development specifically, as to the spatial or attribute accuracy of the data.</useconst>
+<ptcontac>
+<cntinfo>
+<cntorgp>
+<cntorg>ICF International</cntorg>
+</cntorgp>
+<cntaddr>
+<addrtype>physical</addrtype>
+<address>9300 Lee Highway</address>
+<city>Fairfax</city>
+<state>VA</state>
+<postal>22031</postal>
+<country>US</country>
+</cntaddr>
+<cntvoice>703-934-3731</cntvoice>
+<cntemail>info@hudexchange.info</cntemail>
+<hours>9:00 a.m. to 5:00 p.m. Eastern Standard Time</hours>
+</cntinfo>
+</ptcontac>
+<ptcontac>
+<cntinfo>
+<cntorgp>
+<cntorg>ICF International</cntorg>
+</cntorgp>
+<cntaddr>
+<addrtype>physical</addrtype>
+<address>9300 Lee Highway</address>
+<city>Fairfax</city>
+<state>VA</state>
+<postal>22031</postal>
+<country>US</country>
+</cntaddr>
+<cntvoice>703-934-3731</cntvoice>
+<cntemail>info@hudexchange.info</cntemail>
+<hours>9:00 a.m. to 5:00 p.m. Eastern Standard Time</hours>
+</cntinfo>
+</ptcontac>
+<datacred>This data set was developed by the U.S. Department of Housing and Urban Development (HUD).</datacred>
+<native>Esri ArcGIS 13.1.3.41833</native>
+</idinfo>
+<dataqual>
+<logic>The data set is composed of an aggregate of State and Territory, County (or equivalent), Municipal, County Subdivision (Township) and Tribal boundary data. </logic>
+<complete>The data set is a complete representation of the input HUD geocodes.</complete>
+<lineage>
+<srcinfo>
+<srccite>
+<citeinfo>
+<title>U.S. Census Bureau, 2022 Shapefile Boundaries.</title>
+</citeinfo>
+</srccite>
+<typesrc>None</typesrc>
+<srccitea>U.S. Census Bureau, 2022 Shapefile Boundaries.</srccitea>
+<srccontr>County &amp; Municipio, Cousub, Place and AIAN boundary data.</srccontr>
+</srcinfo>
+<procstep>
+<procdesc>In order to create the boundaries for the 2023 Continuums of Care, data was combined through a series of steps based on the HUD geocode definitions. The basis of CoC geographic boundaries are the State (or Territory), County (Municipio in Puerto Rico), County Subdivision (Township), Municipal (City) or Tribal (AIAN) boundaries with which each CoC is associated. The boundary for any particular CoC can be a combination of any of the above mentioned geographic boundary categories. CoC boundaries were calculated by the intersection of the above mentioned geographic boundary categories, as defined by the HUD geocodes and US Census Bureau geography. </procdesc>
+<procdate>20230101</procdate>
+</procstep>
+</lineage>
+</dataqual>
+<spdoinfo>
+<direct>Vector</direct>
+<ptvctinf>
+<sdtsterm>
+<sdtstype>GT-polygon composed of chains</sdtstype>
+<ptvctcnt>1</ptvctcnt>
+</sdtsterm>
+</ptvctinf>
+</spdoinfo>
+<eainfo>
+<detailed>
+<enttyp>
+<enttypl>NJ_513</enttypl>
+<enttypd>Continuum of Care (CoC) geographic boundaries.</enttypd>
+<enttypds>HUD</enttypds>
+</enttyp>
+<attr>
+<attrlabl>FID</attrlabl>
+<attrdef>Internal feature number.</attrdef>
+<attrdefs>Esri</attrdefs>
+<attrdomv>
+<udom>Sequential unique whole numbers that are automatically generated.</udom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>ST</attrlabl>
+<attrdef>State Abbreviation</attrdef>
+<attrdefs>US Census Bureau</attrdefs>
+</attr>
+<attr>
+<attrlabl>CoCName</attrlabl>
+<attrdef>CoC Name</attrdef>
+<attrdefs>HUD</attrdefs>
+</attr>
+<attr>
+<attrlabl>Shape_Area</attrlabl>
+<attrdef>Area of feature in internal units squared.</attrdef>
+<attrdefs>ESRI</attrdefs>
+<attrdomv>
+<udom>Positive real numbers that are automatically generated.</udom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>STATE_NAME</attrlabl>
+<attrdef>State Name</attrdef>
+<attrdefs>US Census Bureau</attrdefs>
+</attr>
+<attr>
+<attrlabl>ARD</attrlabl>
+<attrdef>Annual Renewal Demand.</attrdef>
+<attrdefs>HUD</attrdefs>
+</attr>
+<attr>
+<attrlabl>PPRN</attrlabl>
+<attrdef>Preliminary Pro-Rata Need.
+</attrdef>
+<attrdefs>HUD</attrdefs>
+</attr>
+<attr>
+<attrlabl>FPRN</attrlabl>
+<attrdef>Final Pro-Rata Need.
+</attrdef>
+<attrdefs>HUD</attrdefs>
+</attr>
+<attr>
+<attrlabl>ES_C_HWAC</attrlabl>
+<attrdef>Emergency Shelter Beds - Year Round Beds for Households with Adult(s) and Child(ren).</attrdef>
+<attrdefs>HUD Housing Inventory Count.</attrdefs>
+</attr>
+<attr>
+<attrlabl>FPRN_Statu</attrlabl>
+</attr>
+<attr>
+<attrlabl>ES_C_HWOC</attrlabl>
+<attrdef>Emergency Shelter Beds – Year Round Beds for Households with Only Children</attrdef>
+<attrdefs>HUD Housing Inventory Count.</attrdefs>
+</attr>
+<attr>
+<attrlabl>ES_C_HWOA_</attrlabl>
+</attr>
+<attr>
+<attrlabl>ES_VSO_TOT</attrlabl>
+<attrdef>Emergency Shelter Beds - Voucher/Seasonal/Overflow Beds total.</attrdef>
+<attrdefs>HUD Housing Inventory Count.</attrdefs>
+</attr>
+<attr>
+<attrlabl>SH_C_HWOA</attrlabl>
+<attrdef>Safe Haven beds for Households with Only Adults.</attrdef>
+<attrdefs>HUD Housing Inventory Count.</attrdefs>
+</attr>
+<attr>
+<attrlabl>SH_C_VET</attrlabl>
+<attrdef>Safe Haven beds designated for veterans; a subset of SH adult beds.</attrdef>
+<attrdefs>HUD Housing Inventory Count.</attrdefs>
+</attr>
+<attr>
+<attrlabl>TH_C_HWOA</attrlabl>
+<attrdef>Transitional Housing Beds - Beds for Households with Only Adults</attrdef>
+<attrdefs>HUD Housing Inventory Count.</attrdefs>
+</attr>
+<attr>
+<attrlabl>TH_C_HWAC_</attrlabl>
+</attr>
+<attr>
+<attrlabl>TH_C_HWOC</attrlabl>
+<attrdef>Transitional Housing Beds - Beds for Households with Only Children</attrdef>
+<attrdefs>HUD Housing Inventory Count.</attrdefs>
+</attr>
+<attr>
+<attrlabl>TH_C_VET</attrlabl>
+<attrdef>Transitional Housing beds designated for veterans; a subset of TH adult beds.
+</attrdef>
+<attrdefs>HUD Housing Inventory Count.</attrdefs>
+</attr>
+<attr>
+<attrlabl>PSH_C_HWOA</attrlabl>
+<attrdef>Permanent Supportive Housing beds for Households with Only Adults</attrdef>
+<attrdefs>HUD Housing Inventory Count.</attrdefs>
+</attr>
+<attr>
+<attrlabl>PSH_C_HWAC</attrlabl>
+</attr>
+<attr>
+<attrlabl>PSH_C_HWOC</attrlabl>
+<attrdef>Permanent Supportive Housing beds for Households with Only Children</attrdef>
+<attrdefs>HUD Housing Inventory Count.</attrdefs>
+</attr>
+<attr>
+<attrlabl>PSH_C_CH</attrlabl>
+<attrdef>Permanent Supportive Housing beds designated for chronically homeless persons; may be a subset of year round PSH adult beds.</attrdef>
+<attrdefs>HUD Housing Inventory Count.</attrdefs>
+</attr>
+<attr>
+<attrlabl>PSH_C_VET</attrlabl>
+<attrdef>Permanent Supportive Housing beds designated for veterans; a subset of year round PSH adult beds.</attrdef>
+<attrdefs>HUD Housing Inventory Count.</attrdefs>
+</attr>
+<attr>
+<attrlabl>PSH_U_HWOA</attrlabl>
+<attrdef>Under development Permanent Supportive Housing beds for Households with Only Adults</attrdef>
+<attrdefs>HUD Housing Inventory Count.</attrdefs>
+</attr>
+<attr>
+<attrlabl>PSH_U_HWAC</attrlabl>
+</attr>
+<attr>
+<attrlabl>PSH_U_HWOC</attrlabl>
+<attrdef>Under development Permanent Supportive Housing beds for Households with Only Children</attrdef>
+<attrdefs>HUD Housing Inventory Count.</attrdefs>
+</attr>
+<attr>
+<attrlabl>PSH_U_CH</attrlabl>
+<attrdef>Under development Permanent Supportive Housing beds designated for chronically homeless persons; a subset of under development PSH adult beds.</attrdef>
+<attrdefs>HUD Housing Inventory Count.</attrdefs>
+</attr>
+<attr>
+<attrlabl>PSH_U_VET</attrlabl>
+<attrdef>Under development Permanent Supportive Housing beds designated for veterans; a subset of under development PSH adult beds.</attrdef>
+<attrdefs>HUD Housing Inventory Count.</attrdefs>
+</attr>
+<attr>
+<attrlabl>RRH_C_HWOA</attrlabl>
+<attrdef>Rapid Re-housing Beds - Beds for Households with Only Adults</attrdef>
+<attrdefs>HUD Housing Inventory Count.</attrdefs>
+</attr>
+<attr>
+<attrlabl>RRH_C_HWAC</attrlabl>
+</attr>
+<attr>
+<attrlabl>RRH_C_HWOC</attrlabl>
+<attrdef>Rapid Re-housing Beds - Beds for Households with Only Children</attrdef>
+<attrdefs>HUD Housing Inventory Count.</attrdefs>
+</attr>
+<attr>
+<attrlabl>RRH_C_VET</attrlabl>
+<attrdef>Rapid Re-housing beds designated for veterans; a subset of RRH adult beds.</attrdef>
+<attrdefs>HUD Housing Inventory Count.</attrdefs>
+</attr>
+<attr>
+<attrlabl>Sh_CH</attrlabl>
+<attrdef>Chronically homeless sheltered adult individuals; a subset of sheltered persons</attrdef>
+<attrdefs>HUD Point-In-Time Count.</attrdefs>
+</attr>
+<attr>
+<attrlabl>Sh_Pers_HW</attrlabl>
+</attr>
+<attr>
+<attrlabl>Unsh_Pers_</attrlabl>
+</attr>
+<attr>
+<attrlabl>Sh_Pers__1</attrlabl>
+</attr>
+<attr>
+<attrlabl>Unsh_Pers1</attrlabl>
+</attr>
+<attr>
+<attrlabl>Sh_Pers__2</attrlabl>
+</attr>
+<attr>
+<attrlabl>Unsh_Per_1</attrlabl>
+</attr>
+<attr>
+<attrlabl>Unsh_CH</attrlabl>
+<attrdef>Chronically homeless unsheltered adult individuals; a subset of unsheltered persons</attrdef>
+<attrdefs>HUD Point-In-Time Count.</attrdefs>
+</attr>
+<attr>
+<attrlabl>Sh_Vets</attrlabl>
+<attrdef>Sheltered Veterans; a subset of sheltered persons</attrdef>
+<attrdefs>HUD Point-In-Time Count.</attrdefs>
+</attr>
+<attr>
+<attrlabl>Unsh_Vets</attrlabl>
+<attrdef>Unsheltered Veterans; a subset of unsheltered persons</attrdef>
+<attrdefs>HUD Point-In-Time Count.</attrdefs>
+</attr>
+<attr>
+<attrlabl>CoCNum</attrlabl>
+<attrdef>CoC Number</attrdef>
+<attrdefs>HUD</attrdefs>
+</attr>
+<attr>
+<attrlabl>Sh_Youth_U</attrlabl>
+</attr>
+<attr>
+<attrlabl>Unsh_Youth</attrlabl>
+</attr>
+<attr>
+<attrlabl>Shape_Leng</attrlabl>
+</attr>
+<attr>
+<attrlabl>Shape</attrlabl>
+<attrdef>Feature geometry.</attrdef>
+<attrdefs>ESRI</attrdefs>
+<attrdomv>
+<udom>Coordinates defining the features.</udom>
+</attrdomv>
+</attr>
+</detailed>
+<overview>
+<eaover>FY23 CoC attributes including Annual Renewal Demand (ARD) / Final Pro-Rata Need (FPRN) Status and Preliminary Pro-Rata Need (PPRN) totals, as well as select Housing Inventory Count (HIC) and Point-In-Time (PIT) variables as available.</eaover>
+<eadetcit>Department of Housing and Urban Development Continuum of Care Homeless Assistance Programs, 69 Fed. Reg. 27495 (May 14, 2004).</eadetcit>
+</overview>
+</eainfo>
+<distinfo>
+<distrib>
+<cntinfo>
+<cntorgp>
+<cntorg>ICF International</cntorg>
+</cntorgp>
+<cntaddr>
+<addrtype>mailing and physical</addrtype>
+<address>9300 Lee Valley</address>
+<city>Fairfax</city>
+<state>VA</state>
+<postal>22031</postal>
+<country>US</country>
+</cntaddr>
+<cntvoice>703-934-3731</cntvoice>
+<cntemail>info@hudexchange.info</cntemail>
+<hours>9:00 a.m. to 5:00 p.m. Eastern Standard Time</hours>
+</cntinfo>
+</distrib>
+<distliab>See access and use constraints information.</distliab>
+</distinfo>
+<metainfo>
+<metd>20230101</metd>
+<metfrd>20240101</metfrd>
+<metc>
+<cntinfo>
+<cntorgp>
+<cntorg>ICF International</cntorg>
+</cntorgp>
+<cntaddr>
+<addrtype>physical</addrtype>
+<address>9300 Lee Highway</address>
+<city>Fairfax</city>
+<state>VA</state>
+<postal>22031</postal>
+<country>US</country>
+</cntaddr>
+<cntvoice>703-934-3731</cntvoice>
+<cntemail>info@hudexchange.info</cntemail>
+<hours>9:00 a.m. to 5:00 p.m. Eastern Standard Time</hours>
+</cntinfo>
+</metc>
+<metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+<metstdv>FGDC-STD-001-1998</metstdv>
+<mettc>local time</mettc>
+</metainfo>
+</metadata>

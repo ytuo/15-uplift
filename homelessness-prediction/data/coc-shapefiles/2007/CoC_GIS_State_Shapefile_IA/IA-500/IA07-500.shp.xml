@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xml:lang="en">
+	<idinfo>
+		<citation>
+			<citeinfo>
+				<origin>U.S. Department of Housing and Urban Development (HUD)</origin>
+				<pubdate>03/2008</pubdate>
+				<title Sync="TRUE">IA07-500</title>
+				<geoform Sync="TRUE">vector digital data</geoform>
+				<ftname Sync="TRUE">IA07-500</ftname>
+				<onlink>http://hudhre.info/index.cfm?do=viewCoCMapsAndReports</onlink></citeinfo>
+		</citation>
+		<descript>
+			<abstract>-The dataset contains the geographic boundary for The U.S. Department of Housing and Urban Development's Continuum of Care (CoC) specified in the data file name. The dataset is current for 2007 and includes funding status information.</abstract>
+			<purpose>The U.S. Department of Housing and Urban Development is providing these data sets for use by continuum of care grantees, homeless services planners and research institutions.  Because HUD provides competitive funding for homeless services through a continuum of care structure that is developed at the local level, outside research based on this structure cannot be accomplished without the provision of the geographic boundaries and related data provided herein.  Therefore, this data set was developed to make the Continuum of Care process and funding as transparent as possible to the public.</purpose>
+			<langdata Sync="TRUE">en</langdata>
+		</descript>
+		<timeperd>
+			<timeinfo>
+				<rngdates>
+					<begdate>01/01/2007</begdate>
+					<enddate>12/31/2007</enddate>
+				</rngdates>
+			</timeinfo>
+			<current>2007 Calender Year</current>
+		</timeperd>
+		<status>
+			<progress>Complete</progress>
+			<update>Annually</update>
+		</status>
+		<spdom>
+			<bounding>
+				<westbc Sync="TRUE">-96.729926</westbc>
+				<eastbc Sync="TRUE">-95.668335</eastbc>
+				<northbc Sync="TRUE">42.564031</northbc>
+				<southbc Sync="TRUE">42.209358</southbc>
+			</bounding>
+			<lboundng>
+				<leftbc Sync="TRUE">-56340.837419</leftbc>
+				<rightbc Sync="TRUE">25599.861910</rightbc>
+				<topbc Sync="TRUE">302781.414313</topbc>
+				<bottombc Sync="TRUE">261085.066339</bottombc>
+			</lboundng>
+		</spdom>
+		<keywords>
+			<theme>
+				<themekt>Department of Housing and Urban Development Continuum of Care Homeless Assistance Programs, 69 Fed. Reg. 27495 (May 14, 2004).</themekt>
+				<themekey>Continuum of Care</themekey>
+				<themekey>CoC</themekey>
+				<themekey>Homeless</themekey>
+			</theme>
+		</keywords>
+		<accconst>The dataset can be downloaded from The U.S. Department of Housing and Urban Development website, http://www.hudhre.info/index.cfm?do=viewCoCMapsAndReports.  The dataset may only be re-distributed in original form and may not be distributed in part or in modified form.</accconst>
+		<useconst>The dataset is available for public use.  The dataset, or any portions thereof, may not be modified from its original form or used for any commerical purposes without written permission from The U.S. Department of Housing and Urban Development. The U.S. Department of Housing and Urban Development must be cited as the source when this dataset is used in publications, analysis or other documents for public use.</useconst>
+		<ptcontac>
+			<cntinfo>
+				<cntorgp>
+					<cntorg>ICF International</cntorg>
+				</cntorgp>
+				<cntaddr>
+					<addrtype>mailing and physical address</addrtype>
+					<address>9300 Lee Highway</address>
+					<city>Fairfax</city>
+					<state>VA</state>
+					<postal>22031</postal>
+					<country>USA</country>
+				</cntaddr>
+				<cntvoice>703-934-3731</cntvoice>
+				<cntemail>info@hudhre.info</cntemail>
+				<hours>9:00 a.m. to 5:00 p.m. Eastern Standard Time</hours>
+			</cntinfo>
+		</ptcontac>
+		<datacred>This data set was developed by the U.S. Department of Housing and Urban Development (HUD).</datacred>
+		<native Sync="TRUE">Microsoft Windows XP Version 5.1 (Build 2600) Service Pack 2; ESRI ArcCatalog 9.2.2.1350</native>
+		<natvform Sync="TRUE">Shapefile</natvform>
+	</idinfo>
+	<dataqual>
+		<attracc>
+			<attraccr>Non-internal attributes are all HUD provided data and are accurate for the 2007 CoC calender year.</attraccr>
+		</attracc>
+		<logic>The data set is composed of an aggregate of State and Territory, County, Municipal and County Subdivision (Township) boundary data.  The resulting aggregate polygons have been cleaned and are accurate representations of the CoC geographic areas as decscribed by the HUD geocodes.  Polygon accuracy is a function of the original dataset scale and congurency of the different polygon boundary files used to define the CoC boundaries.</logic>
+		<complete>The data set is a complete representation of the input HUD geocodes.</complete>
+		<posacc>
+			<horizpa>
+				<horizpar>The dataset is dervied from original State, County and territory Boundary data at a scale of approximately 1:80,000,000 and County Subdivision data at a scale of approximately 1:13,000,000.  The dataset may not be suitable for high-precision measurement applications such as engineering calculations, property boundary analysis, or other uses that might require highly accurate measurements of the earth's surface.</horizpar>
+			</horizpa>
+			<vertacc>
+			</vertacc>
+		</posacc>
+		<lineage>
+			<srcinfo>
+				<srccite>
+					<citeinfo>
+						<title>ArcGIS 9 ESRI Data &amp; Maps Media Kit</title>
+					</citeinfo>
+				</srccite>
+				<srcscale>83,000,000</srcscale>
+				<typesrc>CD-ROM</typesrc>
+				<srccitea>ESRI Data and Maps Media Kit.</srccitea>
+				<srccontr>State, County, Territiory and Municipality boundary data.</srccontr>
+			</srcinfo>
+			<srcinfo>
+				<srccite>
+					<citeinfo>
+						<origin>U.S. Census Bureau</origin>
+						<title>U.S. Census Bureau Census 2000 County Subdivisions </title>
+						<onlink>http://www.census.gov/geo/www/cob/cs2000.html</onlink>
+					</citeinfo>
+				</srccite>
+				<srcscale>13,000,000</srcscale>
+				<typesrc>online</typesrc>
+				<srccitea>2000 Census County Sub-division boundary data.</srccitea>
+				<srccontr>County Sub-division boundary data.</srccontr>
+			</srcinfo>
+			<procstep>
+				<procdesc>In order to create the boundaries for the 2007 Continuums of Care, data was combined through a series of steps based on the HUD geocode definitions.  The basis of CoC geographic boundaries are the State (or Territory), County (Municipio in Puerto Rico), County Subdivision (Township) or Municipal (City) boundaries with which each CoC is associated.  The boundary for any particular CoC can be a combination of any of the above mentioned geographic boundary categories.  CoC boundaries were calculated by the intersection of the above mentioned geographic boundary categories, as defined by the HUD geocodes.  The process involved the following steps:
+
+1) Create a list of 2007 CoCs with all the associated type data, geocodes, and CoC ID numbers.
+
+2) Divide the list into its component County, County Subdivision or Municipal associations based on an analysis of the type data and geocode.
+
+3) Join the lists to the corresponding GIS boundary files for County, County Subdivision or Municipalities, and
+
+4) Merge the resulting boundaries and dissolve polygons based on the CoC number to create the appropriate CoC boundaries.
+
+The individual boundary data contained in this dataset is an unmodified subset derived from the 2007 HUD National Continuum of Care Boundaries dataset.</procdesc>
+				<procdate>1/1/08 - 3/1/08</procdate>
+				<procsv>ArcGIS 9.2</procsv>
+			</procstep>
+			<procstep><procdesc Sync="TRUE">Metadata imported.</procdesc><srcused Sync="TRUE">E:\shapefiles\Albers\07_CoC_GIS\2007_CoC_BND_for_file_generation.shp.xml</srcused><date Sync="TRUE">20080306</date><time Sync="TRUE">17304100</time></procstep></lineage>
+	</dataqual>
+	<spdoinfo>
+		<direct Sync="TRUE">Vector</direct>
+		<ptvctinf>
+			<sdtsterm Name="IA07-500">
+				<sdtstype Sync="TRUE">G-polygon</sdtstype>
+				<ptvctcnt Sync="TRUE">1</ptvctcnt>
+			</sdtsterm>
+			<esriterm Name="IA07-500">
+				<efeatyp Sync="TRUE">Simple</efeatyp>
+				<esritopo Sync="TRUE">FALSE</esritopo>
+				<linrefer Sync="TRUE">FALSE</linrefer>
+				<spindex Sync="TRUE">TRUE</spindex>
+				<efeageom Sync="TRUE">Polygon</efeageom>
+				<efeacnt Sync="TRUE">1</efeacnt>
+			</esriterm>
+		</ptvctinf>
+		<indspref>Boundaries</indspref></spdoinfo>
+	<spref>
+		<horizsys>
+			<geodetic>
+				<horizdn Sync="TRUE">North American Datum of 1983</horizdn>
+				<ellips Sync="TRUE">Geodetic Reference System 80</ellips>
+				<semiaxis Sync="TRUE">6378137.000000</semiaxis>
+				<denflat Sync="TRUE">298.257222</denflat>
+			</geodetic>
+			<cordsysn>
+				<geogcsn Sync="TRUE">GCS_North_American_1983</geogcsn>
+				<projcsn Sync="TRUE">North_America_Albers_Equal_Area_Conic</projcsn></cordsysn>
+			<planar><planci><plance Sync="TRUE">coordinate pair</plance><plandu Sync="TRUE">meters</plandu><coordrep><absres Sync="TRUE">0.000000</absres><ordres Sync="TRUE">0.000000</ordres></coordrep></planci><mapproj><mapprojn Sync="TRUE">Albers Conical Equal Area</mapprojn><albers><stdparll Sync="TRUE">20.000000</stdparll><stdparll Sync="TRUE">60.000000</stdparll><longcm Sync="TRUE">-96.000000</longcm><latprjo Sync="TRUE">40.000000</latprjo><feast Sync="TRUE">0.000000</feast><fnorth Sync="TRUE">0.000000</fnorth></albers></mapproj></planar></horizsys>
+	</spref>
+	<eainfo>
+		<detailed Name="IA07-500">
+			<attr>
+				<attrlabl Sync="TRUE">STATUS</attrlabl>
+				<attrdef>Funding code values.</attrdef>
+				<attrdomv>
+					<edom>
+						<edomv>C</edomv>
+						<edomvd>Competitively Funded</edomvd>
+					</edom>
+				</attrdomv>
+				<attrdomv>
+					<edom>
+						<edomv>U</edomv>
+						<edomvd>Non-competitively Funded.</edomvd>
+					</edom>
+				</attrdomv>
+				<attrdomv>
+					<edom>
+						<edomv>N</edomv>
+						<edomvd>Not Funded.</edomvd>
+					</edom>
+				</attrdomv>
+				<attrvai>
+					<attrva>Accurate</attrva>
+					<attrvae>HUD provided data.</attrvae>
+				</attrvai>
+				<attalias Sync="TRUE">STATUS</attalias>
+				<attrtype Sync="TRUE">String</attrtype>
+				<attwidth Sync="TRUE">3</attwidth>
+			</attr>
+			<attr><attrlabl Sync="TRUE">COC_NUM</attrlabl><attalias Sync="TRUE">COC_NUM</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">4</attwidth><attrdef>HUD Continuum of Care number.</attrdef></attr><enttyp>
+				<enttypl Sync="TRUE">IA07-500</enttypl>
+				<enttypc Sync="TRUE">1</enttypc>
+				<enttypt Sync="TRUE">Feature Class</enttypt>
+			</enttyp>
+			<attr>
+				<attrlabl Sync="TRUE">FID</attrlabl>
+				<attrdef Sync="TRUE">Internal feature number.</attrdef>
+				<attrdefs Sync="TRUE">ESRI</attrdefs>
+				<attrdomv>
+					<udom Sync="TRUE">Sequential unique whole numbers that are automatically generated.</udom>
+				</attrdomv>
+				<attrvai>
+					<attrva>n/a</attrva>
+					<attrvae>Internal Identifier</attrvae>
+				</attrvai>
+				<attalias Sync="TRUE">FID</attalias>
+				<attrtype Sync="TRUE">String</attrtype>
+				<attwidth Sync="TRUE">254</attwidth>
+			</attr>
+			<attr>
+				<attrlabl Sync="TRUE">Shape</attrlabl>
+				<attrdef Sync="TRUE">Feature geometry.</attrdef>
+				<attrdefs Sync="TRUE">ESRI</attrdefs>
+				<attrdomv>
+					<udom Sync="TRUE">Coordinates defining the features.</udom>
+				</attrdomv>
+				<attalias Sync="TRUE">Shape</attalias>
+				<attrtype Sync="TRUE">String</attrtype>
+				<attwidth Sync="TRUE">254</attwidth>
+			</attr>
+			<attr><attrlabl Sync="TRUE">COC_NAME</attrlabl><attalias Sync="TRUE">COC_NAME</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">254</attwidth><attrdef>Continuum of Care Name.</attrdef></attr><attr><attrlabl Sync="TRUE">ST</attrlabl><attalias Sync="TRUE">ST</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">254</attwidth><attrdef>State Abbreviation.</attrdef></attr><attr><attrlabl Sync="TRUE">STATE</attrlabl><attalias Sync="TRUE">STATE</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">254</attwidth><attrdef>State Name.</attrdef></attr></detailed>
+		<overview>
+			<eaover>FID &amp; Shape are internal identifiers.  COC_NUM &amp; 06COCNUM are HUD codes for the individual CoC.  COC_NAME is the CoC name identifier.  Status is the funding code for the individual CoC.  State is the state in which the CoC is contained or classifed as being contained (in cases where CoCs cross state boundaries).  </eaover>
+			<dsoverv>The dataset contains the geographic boundary for The U.S. Department of Housing and Urban Development's Continuum of Care (CoC) specified in the data file name. The dataset is current for 2007, is an unmodified subset derived from the 2007 HUD National Continuum of Care Boundaries dataset and includes funding status information.</dsoverv>
+			<eadetcit>Department of Housing and Urban Development Continuum of Care Homeless Assistance Programs, 69 Fed. Reg. 27495 (May 14, 2004).</eadetcit></overview>
+	</eainfo>
+	<distinfo>
+		<resdesc Sync="TRUE">Downloadable Data</resdesc>
+		<distliab>HUD and the dataset and metadata authors assume no responsibility for the use or misuse of the dataset.  No warranty, expressed or implied is made with regard to the accuracy of the spatial accuracy, and no liability is assumed by the U.S. Government in general, the dataset creators or the U.S. Department of Housing and Urban Development specifically, as to the spatial or attribute accuracy of the data.</distliab>
+		<stdorder>
+			<digform>
+				<digtinfo>
+					<transize Sync="TRUE">0.014</transize>
+					<dssize Sync="TRUE">0.014</dssize>
+				</digtinfo>
+			</digform>
+		</stdorder>
+		<distrib><cntinfo><cntaddr><addrtype>mailing and physical address</addrtype><address>9300 Lee Highway</address><city>Fairfax</city><state>VA</state><postal>22031</postal><country>USA</country></cntaddr><cntorgp><cntorg>ICF International</cntorg></cntorgp><cntvoice>703-934-3731</cntvoice><cntemail>info@hudhre.info</cntemail><hours>9:00 a.m. to 5:00 p.m. Eastern Standard Time</hours></cntinfo></distrib></distinfo>
+	<metainfo>
+		<metd Sync="TRUE">20080306</metd>
+		<metc>
+			<cntinfo>
+				<cntorgp>
+					<cntorg>ICF International</cntorg>
+				</cntorgp>
+				<cntaddr>
+					<addrtype>mailing and physical address</addrtype>
+					<address>9300 Lee Highway</address>
+					<city>Fairfax</city>
+					<state>VA</state>
+					<postal>22031</postal>
+					<country>USA</country>
+				</cntaddr>
+				<cntvoice>703-934-3731</cntvoice>
+				<cntemail>info@hudhre.info</cntemail>
+				<hours>9:00 a.m. to 5:00 p.m. Eastern Standard Time</hours>
+			</cntinfo>
+		</metc>
+		<metstdn Sync="TRUE">FGDC Content Standards for Digital Geospatial Metadata</metstdn>
+		<metstdv Sync="TRUE">FGDC-STD-001-1998</metstdv>
+		<mettc Sync="TRUE">local time</mettc>
+		<langmeta Sync="TRUE">en</langmeta>
+		<metextns><metprof Sync="TRUE">ESRI Metadata Profile</metprof></metextns><metextns><onlink Sync="TRUE">http://www.esri.com/metadata/esriprof80.html</onlink><metprof Sync="TRUE">ESRI Metadata Profile</metprof></metextns></metainfo>
+	<dataIdInfo>
+		<envirDesc Sync="TRUE">Microsoft Windows XP Version 5.1 (Build 2600) Service Pack 2; ESRI ArcCatalog 9.2.2.1350</envirDesc>
+		<dataLang>
+			<languageCode Sync="TRUE" value="en"></languageCode>
+		</dataLang>
+		<geoBox esriExtentType="decdegrees">
+			<westBL Sync="TRUE">-96.729926</westBL>
+			<eastBL Sync="TRUE">-95.668335</eastBL>
+			<northBL Sync="TRUE">42.564031</northBL>
+			<southBL Sync="TRUE">42.209358</southBL>
+			<exTypeCode Sync="TRUE">1</exTypeCode>
+		</geoBox>
+		<idCitation>
+			<resTitle Sync="TRUE">IA07-500</resTitle>
+			<presForm>
+				<PresFormCd Sync="TRUE" value="005"></PresFormCd>
+			</presForm>
+		</idCitation>
+		<spatRpType>
+			<SpatRepTypCd Sync="TRUE" value="001"></SpatRepTypCd>
+		</spatRpType>
+		<dataExt>
+			<geoEle>
+				<GeoBndBox esriExtentType="native">
+					<westBL Sync="TRUE">-56340.837419</westBL>
+					<northBL Sync="TRUE">302781.414313</northBL>
+					<southBL Sync="TRUE">261085.066339</southBL>
+					<eastBL Sync="TRUE">25599.86191</eastBL>
+					<exTypeCode Sync="TRUE">1</exTypeCode>
+				</GeoBndBox>
+			</geoEle>
+		</dataExt>
+	</dataIdInfo>
+	<distInfo>
+		<distributor>
+			<distorTran>
+				<onLineSrc>
+					<orDesc Sync="TRUE">002</orDesc>
+					<protocol Sync="TRUE">Local Area Network</protocol>
+					<linkage Sync="TRUE">file://\\GIS-1\F$\07_Deliverables\CoC_Level_Data_by_State\Iowa\IA-500\IA07-500.shp</linkage>
+				</onLineSrc>
+				<transSize Sync="TRUE">0.014</transSize>
+			</distorTran>
+			<distorFormat>
+				<formatName Sync="TRUE">Shapefile</formatName>
+			</distorFormat>
+		</distributor>
+	</distInfo>
+	<Esri>
+		<ModDate>20080306</ModDate>
+		<ModTime>17305700</ModTime>
+		<SyncDate>20080306</SyncDate>
+		<SyncOnce>FALSE</SyncOnce>
+		<SyncTime>17305700</SyncTime>
+		<CreaDate>20080306</CreaDate>
+		<CreaTime>17304100</CreaTime>
+		<DataProperties><lineage><Process Name="Project_1" ToolSource="C:\Program Files\ArcGIS\ArcToolbox\Toolboxes\Data Management Tools.tbx\Project" Date="20060309" Time="112755">Project 2005_CoC_BND_National_Dataset F:\05_Deliverables\2005_National_CoC_Dataset\shapefiles\2005_CoC_BND_National_Dataset_2.shp PROJCS['North_America_Albers_Equal_Area_Conic',GEOGCS['GCS_North_American_1983',DATUM['D_North_American_1983',SPHEROID['GRS_1980',6378137.0,298.257222101]],PRIMEM['Greenwich',0.0],UNIT['Degree',0.0174532925199433]],PROJECTION['Albers'],PARAMETER['False_Easting',0.0],PARAMETER['False_Northing',0.0],PARAMETER['Central_Meridian',-96.0],PARAMETER['Standard_Parallel_1',20.0],PARAMETER['Standard_Parallel_2',60.0],PARAMETER['Latitude_Of_Origin',40.0],UNIT['Meter',1.0]] #</Process><Process Name="Merge_2" ToolSource="C:\Program Files\ArcGIS\ArcToolbox\Toolboxes\Data Management Tools.tbx\Merge" Date="20070327" Time="133457">Merge E:\shapefiles\Albers\06_CoC_Bnd\06_coc_bnd_3_22_07.shp;E:\shapefiles\Albers\06_CoC_Bnd\clean-up\05_NY_603.shp E:\shapefiles\Albers\06_CoC_Bnd\06_coc_bnd_3_27_07.shp "COC_NUM COC_NUM true false false 8 Text 0 0 ,First,#,E:\shapefiles\Albers\06_CoC_Bnd\06_coc_bnd_3_22_07.shp,COC_NUM,-1,-1;STATE_ABRV STATE_ABRV true false false 4 Text 0 0 ,First,#,E:\shapefiles\Albers\06_CoC_Bnd\06_coc_bnd_3_22_07.shp,STATE_ABRV,-1,-1;STATE_NAME STATE_NAME true false false 22 Text 0 0 ,First,#,E:\shapefiles\Albers\06_CoC_Bnd\06_coc_bnd_3_22_07.shp,STATE_NAME,-1,-1;Z6_COC_NUM Z6_COC_NUM true false false 10 Text 0 0 ,First,#,E:\shapefiles\Albers\06_CoC_Bnd\06_coc_bnd_3_22_07.shp,Z6_COC_NUM,-1,-1;COC_NAME COC_NAME true false false 58 Text 0 0 ,First,#,E:\shapefiles\Albers\06_CoC_Bnd\06_coc_bnd_3_22_07.shp,COC_NAME,-1,-1;STATUS STATUS true false false 3 Text 0 0 ,First,#,E:\shapefiles\Albers\06_CoC_Bnd\06_coc_bnd_3_22_07.shp,STATUS,-1,-1;YEAR YEAR true false false 4 Short 0 4 ,First,#,E:\shapefiles\Albers\06_CoC_Bnd\06_coc_bnd_3_22_07.shp,YEAR,-1,-1"</Process></lineage></DataProperties><MetaID>{96050142-CFCC-4009-9A8A-9F7B4DFCEA6E}</MetaID></Esri>
+	<mdChar>
+		<CharSetCd Sync="TRUE" value="004"></CharSetCd>
+	</mdChar>
+	<mdDateSt Sync="TRUE">20080306</mdDateSt>
+	<mdHrLv>
+		<ScopeCd Sync="TRUE" value="005"></ScopeCd>
+	</mdHrLv>
+	<mdHrLvName Sync="TRUE">dataset</mdHrLvName>
+	<mdLang>
+		<languageCode Sync="TRUE" value="en"></languageCode>
+	</mdLang>
+	<mdStanName Sync="TRUE">ISO 19115 Geographic Information - Metadata</mdStanName>
+	<mdStanVer Sync="TRUE">DIS_ESRI1.0</mdStanVer>
+	<refSysInfo>
+		<RefSystem>
+			<refSysID>
+				<identCode Sync="TRUE">North_America_Albers_Equal_Area_Conic</identCode>
+			</refSysID>
+		</RefSystem>
+	</refSysInfo>
+	<spatRepInfo>
+		<VectSpatRep>
+			<topLvl>
+				<TopoLevCd Sync="TRUE" value="001"></TopoLevCd>
+			</topLvl>
+			<geometObjs Name="IA07-500"><geoObjTyp><GeoObjTypCd Sync="TRUE" value="001"></GeoObjTypCd></geoObjTyp><geoObjCnt Sync="TRUE">1</geoObjCnt></geometObjs></VectSpatRep>
+	</spatRepInfo>
+</metadata>
