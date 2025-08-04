@@ -380,7 +380,8 @@ def create_coc_summary(year, api_key, states = states):
                 
                 # For median/mean/per capita features, use population-weighted average, omitting negatives/missing
                 total_population = np.dot(weights, subset_df['Total Population'].astype(float))
-                pop_weights = pd.to_numeric(subset_df['Total Population'], errors='coerce').fillna(0) / total_population
+                # pop_weights = pd.to_numeric(subset_df['Total Population'], errors='coerce').fillna(0) / total_population
+                pop_weights = pd.to_numeric(subset_df['Total Population'], errors='coerce').fillna(0)*weights / total_population
                 if any(x in feature.lower() for x in ['median', 'mean', 'per capita']):
                     valid_mask = (values > 0) & values.notnull()
                     if valid_mask.sum() > 0:
