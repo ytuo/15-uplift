@@ -81,7 +81,7 @@ states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
 # }
 
 census_features = {
-        "Total Population": "B01003_001E",
+        "total_population": "B01003_001E",
 #     # TIER 1: CRITICAL PREDICTORS (Highest Impact)
     
 #     # Housing & Economic Stability
@@ -92,13 +92,15 @@ census_features = {
     "median_household_income": "B19013_001E",
     
     # "gross_rent_30_to_35_percent_income": "B25070_007E",
-    # "gross_rent_35_percent_or_more_income": "B25070_008E",
+    "gross_rent_35_to_40_percent_income": "B25070_008E",
+    "gross_rent_40_to_50_percent_income": "B25070_009E",
     "gross_rent_50_percent_or_more_income": "B25070_010E",
-#     "gross_rent_not_computed": "B25070_009E",
+    # "gross_rent_not_computed": "B25070_009E",
     "gross_rent_total": "B25070_001E",
     
     "poverty_status_below_poverty": "B17001_002E",
-    "poverty_status_total": "B17001_001E",
+    "poverty_status_at_or_above_poverty": "B17001_031E",
+    # "poverty_status_total": "B17001_001E",
     
 #     "vacancy_for_rent": "B25004_002E",
 #     "vacancy_rented_not_occupied": "B25004_003E",
@@ -109,11 +111,13 @@ census_features = {
 #     # TIER 2: STRONG PREDICTORS
     
 #     # Employment & Income
-    "employment_in_labor_force": "B23025_002E",
+    # "employment_in_labor_force": "B23025_002E",
     # "employment_civilian_labor_force": "B23025_003E",
+    "employment_in_civilian_labor_force_employed": "B23025_004E",
+    "employment_in_civilian_labor_force_unemployed": "B23025_005E",
     # "employment_employed": "B23025_004E",
     # "employment_unemployed": "B23025_005E",
-    "employment_not_in_labor_force": "B23025_007E",
+    # "employment_not_in_labor_force": "B23025_007E",
     # "employment_total": "B23025_001E",
     
 #     "earnings_male_with_earnings": "B20001_002E",
@@ -121,7 +125,7 @@ census_features = {
 #     "earnings_total_with_earnings": "B20001_001E",
     
     "snap_received_in_past_12_months": "B22001_002E",
-#     "snap_not_received_in_past_12_months": "B22001_003E",
+    # "snap_not_received_in_past_12_months": "B22001_003E",
     "snap_total_households": "B22001_001E",
     
 #     # Demographics & Household Structure
@@ -130,16 +134,41 @@ census_features = {
 #     "household_type_living_alone": "B11001_008E",
 #     "household_type_total": "B11001_001E",
     
-#     "age_under_18": "B01001_003E",  # Male under 5 + 5-9 + 10-14 + 15-17
-#     "age_18_to_24_male": "B01001_007E",
-#     "age_18_to_24_female": "B01001_031E", 
-#     "age_25_to_34_male": "B01001_008E",
-#     "age_25_to_34_female": "B01001_032E",
-#     "age_55_to_64_male": "B01001_017E",
-#     "age_55_to_64_female": "B01001_041E",
-    "age_65_plus_male": "B01001_020E",
-    "age_65_plus_female": "B01001_044E",
-    # "age_total_population": "B01001_001E",
+    # NOTE: THESE KEYS ARE WRONG!
+    # "age_under_18": "B01001_003E",  # Male under 5 + 5-9 + 10-14 + 15-17
+    # "age_18_to_24_male": "B01001_007E",
+    # "age_18_to_24_female": "B01001_031E", 
+    # "age_25_to_34_male": "B01001_008E",
+    # "age_25_to_34_female": "B01001_032E",
+    # "age_55_to_64_male": "B01001_017E",
+    # "age_55_to_64_female": "B01001_041E",
+    # "age_65_plus_male": "B01001_020E",
+    # "age_65_plus_female": "B01001_044E",
+    # # "age_total_population": "B01001_001E",
+
+    "population_male": "B01001_002E",
+    "age_0_5_male": "B01001_003E",
+    "age_5_9_male": "B01001_004E",
+    "age_10_14_male": "B01001_005E",
+    "age_15_17_male": "B01001_006E",
+    "age_65_66_male": "B01001_020E",
+    "age_67_69_male": "B01001_021E",
+    "age_70_74_male": "B01001_022E",
+    "age_75_79_male": "B01001_023E",
+    "age_80_84_male": "B01001_024E",
+    "age_85_plus_male": "B01001_025E",
+
+    "population_female": "B01001_026E",
+    "age_0_5_female": "B01001_027E",
+    "age_5_9_female": "B01001_028E",
+    "age_10_14_female": "B01001_029E",
+    "age_15_17_female": "B01001_030E",
+    "age_65_66_female": "B01001_044E",
+    "age_67_69_female": "B01001_045E",
+    "age_70_74_female": "B01001_046E",
+    "age_75_79_female": "B01001_047E",
+    "age_80_84_female": "B01001_048E",
+    "age_85_plus_female": "B01001_049E",
     
 #     "tenure_household_size_1_person": "B25009_003E",
 #     "tenure_household_size_2_person": "B25009_004E",
@@ -158,11 +187,31 @@ census_features = {
 #     "health_insurance_total": "B27001_001E",
     
 #     # Education & Human Capital
-#     "education_less_than_high_school": "B15002_003E",  # Male less than 9th grade + 9th-12th no diploma
-#     "education_high_school_grad": "B15002_011E",  # Male HS grad
-#     "education_some_college": "B15002_012E",  # Male some college
-    "education_bachelors_or_higher": "B15002_015E",  # Male bachelor's + graduate
-#     "education_total_25_plus": "B15002_001E",
+
+    "education_total": "B15002_001E",
+    "education_male_total": "B15002_002E",
+    "education_male_no_schooling": "B15002_003E",
+    "education_male_high_school": "B15002_011E",
+    "education_male_bachelors": "B15002_015E",
+    "education_male_masters": "B15002_016E",
+    "education_male_professional_degree": "B15002_017E",
+    "education_male_doctorate": "B15002_018E",
+
+    "education_female_total": "B15002_019E",
+    "education_female_no_schooling": "B15002_020E",
+    "education_female_high_school": "B15002_028E",
+    "education_female_bachelors": "B15002_032E",
+    "education_female_masters": "B15002_033E",
+    "education_female_professional_degree": "B15002_034E",
+    "education_female_doctorate": "B15002_035E",
+
+
+    # NOTE: THESE KEYS ARE WRONG!
+    # "education_less_than_high_school": "B15002_003E",  # Male less than 9th grade + 9th-12th no diploma
+    # "education_high_school_grad": "B15002_011E",  # Male HS grad
+    # "education_some_college": "B15002_012E",  # Male some college
+    # "education_bachelors_or_higher": "B15002_015E",  # Male bachelor's + graduate
+    # "education_total_25_plus": "B15002_001E",
     
 #     "employment_status_male_in_labor_force": "C23002_008E",
 #     "employment_status_female_in_labor_force": "C23002_021E",
@@ -170,8 +219,9 @@ census_features = {
     
 #     # Geographic Mobility  
     "geographic_mobility_same_house": "B07001_017E",
-    "geographic_mobility_moved_within_state": "B07001_065E",
-    "geographic_mobility_moved_different_state": "B07001_081E",
+    "geographic_mobility_moved_different_state": "B07001_065E",
+    "geographic_mobility_moved_within_state": "B07001_049E",
+    "geographic_mobility_moved_from_abroad": "B07001_081E",
     "geographic_mobility_total": "B07001_001E",
     
 #     "year_moved_2018_or_later": "B25038_003E",
@@ -195,10 +245,10 @@ census_features = {
     
 #     # Specialized Populations
     "veteran_status_veteran": "B21001_002E",
-    # "veteran_status_nonveteran": "B21001_003E",
-    "veteran_status_total": "B21001_001E",
+    "veteran_status_nonveteran": "B21001_003E",
+    # "veteran_status_total": "B21001_001E",
     
-#     "nativity_native_born": "B05001_002E",
+    "nativity_native_born": "B05001_002E",
     "nativity_foreign_born_naturalized": "B05001_005E",
     "nativity_foreign_born_not_citizen": "B05001_006E",
     "nativity_total": "B05001_001E",
@@ -220,7 +270,7 @@ census_features = {
     "median_gross_rent": "B25064_001E",
     "median_home_value": "B25077_001E",
     "housing_units_total": "B25001_001E",
-#     "occupied_housing_units": "B25002_002E",
+    "occupied_housing_units": "B25002_002E",
     "vacant_housing_units": "B25002_003E",
     
 #     # Additional demographic variables
@@ -230,8 +280,13 @@ census_features = {
 #     # Race/ethnicity (important for understanding disparities)
     "race_white_alone": "B02001_002E",
     "race_black_alone": "B02001_003E", 
-    "race_hispanic_latino": "B03003_003E"
-    # "race_total_population": "B02001_001E"
+    "race_native_american_and_alaskan": "B02001_004E",
+    "race_asian": "B02001_005E",
+    "race_hawaiian": "B02001_006E",
+    "race_other": "B02001_007E",
+    "race_two_or_more": "B02001_008E",
+    "race_hispanic_latino": "B03003_003E",
+    "race_total_population": "B02001_001E"
 }
 
 # # census_features = {
