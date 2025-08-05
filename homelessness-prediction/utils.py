@@ -10,6 +10,7 @@ from urllib.parse import urlparse
 import geopandas as gpd
 from pathlib import Path
 import numpy as np
+import matplotlib.pyplot as plt
 
 def download_file_with_progress(url, local_filename=None, download_dir="data/coc-shapefiles"):
     """
@@ -315,13 +316,13 @@ def create_cocs_tract_crosswalk(state = 'MA', year = 2024):
             coc_gpd = gpd.read_file(coc_file)
             overlapping_tracts = gpd.sjoin(tracts.to_crs(coc_gpd.crs), coc_gpd, how="inner", predicate="intersects")
             # FOR DEBUGGING: Plot the overlapping tracts
-            # fig, axes = plt.subplots(ncols = 2)
-            # coc_gpd.plot(
-            #     ax=axes[0]
-            # )
-            # overlapping_tracts.plot(
-            #     ax=axes[1]
-            # )
+            fig, axes = plt.subplots(ncols = 2)
+            coc_gpd.plot(
+                ax=axes[0]
+            )
+            overlapping_tracts.plot(
+                ax=axes[1]
+            )
             
             # For those tracts that overlap, we estimate how much of each tract is contained in the CoC
             # First, project the CoC and tracts into an area-preserving coordinate system
