@@ -293,6 +293,23 @@ def get_state_tracts(state, year, api_key):
     # print(df.head())
     return df
 
+def create_cocs_graphs(year, states = states):
+    directory = Path.cwd()
+    coc_gpd = []
+    for state in states:
+        if state in ["AK", "HI"]:
+            continue
+        # print(state)
+        coc_path = directory / 'data' / 'coc-shapefiles' / str(year) / f'CoC_GIS_State_Shapefile_{state}' / str.replace(state_info[state][0], " ", "_")
+        cocs = [coc for coc in os.listdir(coc_path) if coc.startswith(state + '_')]
+        for coc in cocs:
+            coc_file = coc_path / coc / str(coc + '.shp')
+            if coc_file.is_file():
+                coc_gpd.append(gpd.read_file(coc_file))
+    
+    return gpd.GeoDataFrame(pd.concat(coc_gpd))
+
+
 def create_cocs_tract_crosswalk(state = 'MA', year = 2024):
     
     directory = Path.cwd()
@@ -316,13 +333,13 @@ def create_cocs_tract_crosswalk(state = 'MA', year = 2024):
             coc_gpd = gpd.read_file(coc_file)
             overlapping_tracts = gpd.sjoin(tracts.to_crs(coc_gpd.crs), coc_gpd, how="inner", predicate="intersects")
             # FOR DEBUGGING: Plot the overlapping tracts
-            fig, axes = plt.subplots(ncols = 2)
-            coc_gpd.plot(
-                ax=axes[0]
-            )
-            overlapping_tracts.plot(
-                ax=axes[1]
-            )
+            # fig, axes = plt.subplots(ncols = 2)
+            # coc_gpd.plot(
+            #     ax=axes[0]
+            # )
+            # overlapping_tracts.plot(
+            #     ax=axes[1]
+            # )
             
             # For those tracts that overlap, we estimate how much of each tract is contained in the CoC
             # First, project the CoC and tracts into an area-preserving coordinate system
