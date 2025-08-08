@@ -10,6 +10,7 @@ from urllib.parse import urlparse
 import geopandas as gpd
 from pathlib import Path
 import numpy as np
+from functools import reduce
 import matplotlib.pyplot as plt
 
 def download_file_with_progress(url, local_filename=None, download_dir="data/coc-shapefiles"):
@@ -191,7 +192,7 @@ def get_tract_data(fips_code, api_key, year):
         
         df = pd.DataFrame([
             {"Category": "Demographics", "Metric": "Location", "Value": location_name},
-            {"Category": "Demographics", "Metric": "Total Population", "Value": results["Total Population"]},
+            {"Category": "Demographics", "Metric": "total_population", "Value": results["total_population"]},
             # {"Category": "Demographics", "Metric": "Bachelor's Degree Rate (%)", "Value": results.get("Bachelor's Degree Rate (%)", "N/A")},
             
             {"Category": "Economics", "Metric": "Median Household Income ($)", "Value": results["Median Household Income"]},
@@ -210,7 +211,7 @@ def get_tract_data(fips_code, api_key, year):
                 {
                     "FIPS": fips_code,
                     "Location": location_name,
-                    "Total_Population": results["Total Population"],
+                    "Total_Population": results["total_population"],
                     "Total_Housing_Units": results["Total Housing Units"],
                     "Bachelor_Degree_Count": results["Bachelor's Degree"],
                     "Total_Education_Population": results["Total Education Population"],
@@ -273,22 +274,48 @@ def get_state_tracts(state, year, api_key):
     base_url = f"https://api.census.gov/data"
     
     # Create variable list for API call
-    query_string = ",".join(["NAME"] + list(census_features.values()))
+    # The Census API limits the number of variables per request (max ~50). So, split census_features into chunks of 50.
+    def chunk_list(lst, n):
+        for i in range(0, len(lst), n):
+            yield lst[i:i + n]
 
-    # Get data for all tracts in the state
-    geography_string = f"for=tract:*&in=state:{state_info[state][1]}&in=county:*"
+    feature_keys = list(census_features.keys())
+    feature_chunks = list(chunk_list(feature_keys, 40))
+    # print(len(feature_chunks[0]))
 
-    query_url = f"{base_url}/{year}/acs/acs5?get={query_string}&{geography_string}&key={api_key}"
+    dfs = []
+    for chunk in feature_chunks:
+        query_string = ",".join(["NAME"] + [census_features[k] for k in chunk])
+        # print(query_string)
+        geography_string = f"for=tract:*&in=state:{state_info[state][1]}&in=county:*"
+        query_url = f"{base_url}/{year}/acs/acs5?get={query_string}&{geography_string}&key={api_key}"
+        resp = requests.get(url=query_url)
+        resp.raise_for_status()
+        df_chunk = pd.DataFrame(resp.json())
+        reverse_census_features = {v: k for k, v in census_features.items()}
+        df_chunk.columns = [reverse_census_features.get(col, col) for col in df_chunk.iloc[0]]
+        df_chunk = df_chunk[1:]
+        dfs.append(df_chunk)
 
-    # print(query_url)
+    # Merge all chunks on common columns (NAME, state, county, tract)
+    df = reduce(lambda left, right: pd.merge(left, right, on=['NAME', 'state', 'county', 'tract'], how='outer'), dfs)
 
-    resp = requests.get(url=query_url)
-    resp.raise_for_status()
-    df = pd.DataFrame(resp.json())
-    # Map columns: if column name is in census_features.values(), replace with its key; else keep as is
-    reverse_census_features = {v: k for k, v in census_features.items()}
-    df.columns = [reverse_census_features.get(col, col) for col in df.iloc[0]]
-    df = df[1:]
+    # query_string = ",".join(["NAME"] + list(census_features.values()))
+
+    # # Get data for all tracts in the state
+    # geography_string = f"for=tract:*&in=state:{state_info[state][1]}&in=county:*"
+
+    # query_url = f"{base_url}/{year}/acs/acs5?get={query_string}&{geography_string}&key={api_key}"
+
+    # # print(query_url)
+
+    # resp = requests.get(url=query_url)
+    # resp.raise_for_status()
+    # df = pd.DataFrame(resp.json())
+    # # Map columns: if column name is in census_features.values(), replace with its key; else keep as is
+    # reverse_census_features = {v: k for k, v in census_features.items()}
+    # df.columns = [reverse_census_features.get(col, col) for col in df.iloc[0]]
+    # df = df[1:]
     df['GEOID'] = df['state'].astype(str) + df['county'].astype(str) + df['tract'].astype(str)
     # print(df.head())
     return df
@@ -376,8 +403,8 @@ def create_coc_summary(year, api_key, states = states):
             # Find the relevant tract in state_tracts and extract 
             subset_df = state_tracts[state_tracts['GEOID'].isin(state_coc_tract_crosswalk[coc].keys())]
             weights = [state_coc_tract_crosswalk[coc][geoid] for geoid in subset_df['GEOID']]
-            # coc_population = subset_df['Total Population']
-            # total_population = np.dot(weights, subset_df['Total Population'].astype(float))
+            # coc_population = subset_df['total_population']
+            # total_population = np.dot(weights, subset_df['total_population'].astype(float))
             
             weighted_results = {}
             for feature, col in census_features.items():
@@ -397,9 +424,9 @@ def create_coc_summary(year, api_key, states = states):
                 weighted_results[feature] = np.dot(weights, values)
                 
                 # For median/mean/per capita features, use population-weighted average, omitting negatives/missing
-                total_population = np.dot(weights, subset_df['Total Population'].astype(float))
-                # pop_weights = pd.to_numeric(subset_df['Total Population'], errors='coerce').fillna(0) / total_population
-                pop_weights = pd.to_numeric(subset_df['Total Population'], errors='coerce').fillna(0)*weights / total_population
+                total_population = np.dot(weights, subset_df['total_population'].astype(float))
+                # pop_weights = pd.to_numeric(subset_df['total_population'], errors='coerce').fillna(0) / total_population
+                pop_weights = pd.to_numeric(subset_df['total_population'], errors='coerce').fillna(0)*weights / total_population
                 if any(x in feature.lower() for x in ['median', 'mean', 'per capita']):
                     valid_mask = (values > 0) & values.notnull()
                     if valid_mask.sum() > 0:
@@ -414,3 +441,38 @@ def create_coc_summary(year, api_key, states = states):
             coc_data = pd.concat([coc_data, weighted_df], axis=0)
     
     return coc_data
+
+def post_process_census_data(df):
+    d = pd.DataFrame()
+    d.index = df.index
+    d['Total Population'] = df['total_population']
+    d['Percent_Women'] = df['population_female']/df['total_population']
+    d['Percent_Children'] = (df['age_0_5_female'] + df['age_5_9_female'] + df['age_10_14_female'] + df['age_15_17_female'] 
+                             + df['age_0_5_male'] + df['age_5_9_male'] + df['age_10_14_male'] + df['age_15_17_male'])/df['total_population']
+    d['median_household_income'] = df['median_household_income']
+    d['Gross_Rent_Ratio'] = df['gross_rent_50_percent_or_more_income']/df['gross_rent_total']
+    d['Poverty_Ratio'] = df['poverty_status_below_poverty']/(df['poverty_status_below_poverty'] + df['poverty_status_at_or_above_poverty'])
+    d['Employment_Ratio'] = df['employment_in_civilian_labor_force_employed']/(df['employment_in_civilian_labor_force_employed'] + df['employment_in_civilian_labor_force_unemployed'])
+    d['SNAP_Ratio'] = df['snap_received_in_past_12_months']/df['snap_total_households']
+    d['Age_65_Plus_Ratio'] = (df['age_65_66_female'] + df['age_67_69_female'] + df['age_70_74_female'] + df['age_75_79_female'] + df['age_80_84_female'] + df['age_85_plus_female'] 
+                             + df['age_65_66_male'] + df['age_67_69_male'] + df['age_70_74_male'] + df['age_75_79_male'] + df['age_80_84_male'] + df['age_85_plus_male'])/df['total_population']
+    d['Education_Bachelors_Ratio'] = (df['education_male_bachelors'] + df['education_male_masters'] + df['education_male_professional_degree'] + df['education_male_doctorate']
+                                      + df['education_female_bachelors'] + df['education_female_masters'] + df['education_female_professional_degree'] + df['education_female_doctorate']
+                                      )/df['education_total']
+    d['Mobility_Same_House_Ratio'] = df['geographic_mobility_same_house']/df['geographic_mobility_total']
+    d['Mobility_Within_State_Ratio'] = df['geographic_mobility_moved_within_state']/df['geographic_mobility_total']
+    d['Mobility_Different_State_Ratio'] = df['geographic_mobility_moved_different_state']/df['geographic_mobility_total']
+    d['Veteran_Ratio'] = df['veteran_status_veteran']/(df['veteran_status_veteran'] + df['veteran_status_nonveteran'])
+    d['Nativity_Naturalized_Ratio'] = df['nativity_foreign_born_naturalized']/df['nativity_total']
+    d['Nativity_Not_Citizen_Ratio'] = df['nativity_foreign_born_not_citizen']/df['nativity_total']
+    d['Social_Security_Ratio'] = df['social_security_income_households']/df['social_security_income_total_households']
+    d['SSI_Ratio'] = df['ssi_income_households']/df['social_security_income_total_households']
+    d['median_gross_rent'] = df['median_gross_rent']
+    d['median_home_value'] = df['median_home_value']
+    d['Vacant_Housing_Ratio'] = df['vacant_housing_units']/df['housing_units_total']
+    d['median_age'] = df['median_age']
+    d['Race_White_Ratio'] = df['race_white_alone']/df['race_total_population']
+    d['Race_Black_Ratio'] = df['race_black_alone']/df['race_total_population']
+    d['Race_Hispanic_Ratio'] = df['race_hispanic_latino']/df['race_total_population']
+
+    return d
