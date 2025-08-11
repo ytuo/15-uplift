@@ -11,6 +11,7 @@ import geopandas as gpd
 from pathlib import Path
 import numpy as np
 from functools import reduce
+import matplotlib.pyplot as plt
 
 def download_file_with_progress(url, local_filename=None, download_dir="data/coc-shapefiles"):
     """
@@ -318,6 +319,23 @@ def get_state_tracts(state, year, api_key):
     df['GEOID'] = df['state'].astype(str) + df['county'].astype(str) + df['tract'].astype(str)
     # print(df.head())
     return df
+
+def create_cocs_graphs(year, states = states):
+    directory = Path.cwd()
+    coc_gpd = []
+    for state in states:
+        if state in ["AK", "HI"]:
+            continue
+        # print(state)
+        coc_path = directory / 'data' / 'coc-shapefiles' / str(year) / f'CoC_GIS_State_Shapefile_{state}' / str.replace(state_info[state][0], " ", "_")
+        cocs = [coc for coc in os.listdir(coc_path) if coc.startswith(state + '_')]
+        for coc in cocs:
+            coc_file = coc_path / coc / str(coc + '.shp')
+            if coc_file.is_file():
+                coc_gpd.append(gpd.read_file(coc_file))
+    
+    return gpd.GeoDataFrame(pd.concat(coc_gpd))
+
 
 def create_cocs_tract_crosswalk(state = 'MA', year = 2024):
     
